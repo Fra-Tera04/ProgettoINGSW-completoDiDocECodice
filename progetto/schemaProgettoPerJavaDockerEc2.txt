@@ -1,0 +1,245 @@
+Schema parti progetto
+---------------------
+
+
+java
+	progetto
+		frontend	javafx
+		core		java
+		backend 	java + docker
+
+
+docker
+	dockerizzare progetto + use postgress
+	use 
+		docekrfile
+			enstablish 
+				java file 
+					con eclipse-temurin:latest
+			
+				db
+					con 
+						postre:16-alpine
+		compose.yml
+			per gestire 
+				porte
+				volumi
+				user/pswd
+
+ec2
+	ssh
+	install docekr
+	pull img
+	save volume
+	close
+
+
+Versioni Precedenti
+-------------------------------------
+
+
+V1
+--
+
+su java
+	creare un helloworld
+	crare progetto springboot 
+		non funziona marckertplace springtool
+		parte tomcat ma non ma mi da errore
+	tramite maven
+
+-
+su docker 
+	crea imagine di
+		postres
+		java backend o tutto cmq di springboot
+
+	settare dockerfile con 
+		eclipse-temurin:latest
+		postre:16-alpine
+
+	settare compose.yml
+		volumi 
+			su cartella dedicata oppure cartella standard
+-
+
+su aws ec2 
+	connect ssh
+	install docker 
+	inistall nomeDocker/nomeImagine precedentemente creati e risiedenti su dockerhub (in teoria)
+	run immagine
+	fai cose 
+	copy volumi 
+		create file jar
+		transfer tramite scp 
+			( 
+			  https://www.docker.com/blog/back-up-and-share-docker-volumes-with-this-extension/ 
+			  https://medium.com/@ioannis.gkikasth/how-to-migrate-a-docker-volume-from-one-machine-to-another-7445ff172957
+			)
+
+
+
+
+Approfondimento 
+---------------------
+
+
+
+----------------------
+How to Deploy Spring Boot Application with Docker into AWS EC2
+----------------------
+
+
+create app using spring + maven
+	con getMapping in "/"
+	in appPropetis
+		serverposrt: xxxx
+
+
+dockerfile
+	from "quello la"
+	arg 
+	copy
+	enterpoint java -jar /app.jar
+	
+	push = mvn clean .. dockerfile:push
+
+
+ec2 
+	install docekr
+	start docekr
+		sudo service docker start
+	pull usreName/imageName:latest
+	(allaw port)
+	run 
+		docker compose ..
+
+
+---------------------------------------------------------------
+
+---------------------
+How to Deploy SpringBoot Application to AWS Elastic Beanstalk
+---------------------
+
+prendi un springboot vuoto e add some classes
+	un coltroller
+		@restController string home(){print}
+	app.propetis
+		server.port = xxx
+		
+	jar file
+		mvn clean install
+		deploy file
+
+---------------
+How To Dockerize Spring Boot Application & PostgreSQL Database
+---------------
+
+-
+have the db in loco
+have the java spring jdbs in loco in app.propertis
+-
+
+app.propertise
+	server posrt config
+	postgres config 
+		spring.data.. = classname url user pswd
+		spring.jpa.. sql=true ...
+
+
+dockerfile
+	#java
+	from eclipse..
+	copy target/*.jar nomeapp.jar
+	expose xxx
+	etripoint java -jar nomeapp.jar
+
+	#db
+	from postgres..
+	copy
+	..?..
+
+--------------------
+How To Create Multi Containers Using Docker Compose | For SpringBoot & Postgresql
+--------------------
+
+dockerfile
+	#java part
+	
+docker-compose.yaml
+	verision:
+	service:
+		db:
+			ports:
+				- 5432:5432 ( postgres standard port
+			conteiner_name:
+				post_conteiner
+			image: postgres
+			env..:
+				- postgres_db=
+				- pswd=
+				- user=
+			volumes: (cerca su doc docker postgre e cerca le dir)
+				- local:conteiner_dir_files
+			restart: alw..
+
+		backend:
+			build:
+				docekrfile: .
+			ports:
+				- 8089:8089 ( server prop )
+			container_name: 
+				nomeapp
+			enfironment:
+				db-url: jdbc:portgressql://xxx:5432/mydb2
+				postgres_db=
+				pswd=
+				user=
+			??depends_on:
+				- db
+			restart: always
+
+
+start compose
+	docker compose nomeCompose.yaml up
+vai su postgres interface e collega le cose con i nomi che hai settato sopra
+
+stop
+	doker-compose down
+
+
+
+----
+docker inspect per ip
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+asasdasdead

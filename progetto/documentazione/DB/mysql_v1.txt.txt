@@ -1,0 +1,65 @@
+# utente(concorrente) *-*asta, come si fa una lista? 
+# foreign key dilemma.
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.asta 
+(
+	Titolo VARCHAR(30) NOT NULL,
+	Descrizione VARCHAR(130),
+	Categoria varchar(30) NOT NULL,
+	Tipologia varchar(30) NOT NULL,
+	DataInizio DATETIME NOT NULL,
+	DataFine DATETIME NOT NULL,
+	ListaConcorrenti varchar(400),
+	OffertaPiuAlta float,
+	FotoProfilo varchar(300),
+  
+	ID INT NOT NULL,
+	Venditore int NOT NULL,
+  
+	PRIMARY KEY (ID),
+    FOREIGN KEY (Venditore) REFERENCES utente(ID)
+  );
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.utente (
+  Nome VARCHAR(30) NOT NULL,
+  Cognome VARCHAR(30) NOT NULL,
+  Biografia VARCHAR(300),
+  Geolocalizzazione VARCHAR(50) ,
+  ElencoSocial VARCHAR(30),
+  FotoProfilo VARCHAR(300),
+  IsAmministratore boolean,
+  EmailUtente varchar(40),
+  PasswordUtente varchar(30),
+
+  ID INT NOT NULL,
+  ElencoRecensioni INT NOT NULL,
+  ElencoAste INT NOT NULL,
+  ElencoNotifiche int not null,
+  
+  PRIMARY KEY (ID),
+  FOREIGN KEY (ElencoNotifiche) REFERENCES notifiche(ID),
+  FOREIGN KEY (ElencoRecensione) REFERENCES recensione(ID),
+  FOREIGN KEY (ElencoAste) REFERENCES Asta(ID)
+  );
+  
+  CREATE TABLE IF NOT EXISTS auctionlinedb.notifiche 
+  (
+    Testo varchar(50) NOT NULL,
+    
+	ID INT NOT NULL,
+    primary key (ID)
+    );
+    
+  CREATE TABLE IF NOT EXISTS auctionlinedb.recensione 
+  (
+	NomeCompratore VARCHAR(30) NOT NULL,
+    Titolo varchar(20) not null,
+	Contenuto varchar(200),
+	numeroStelle int not null,
+	  
+	ID INT NOT NULL,
+	Compratore int NOT NULL,
+  
+	PRIMARY KEY (ID),
+	FOREIGN KEY (Compratore) REFERENCES utente(ID)
+  );

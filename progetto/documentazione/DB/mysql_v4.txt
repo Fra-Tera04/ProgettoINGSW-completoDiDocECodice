@@ -1,0 +1,96 @@
+-- NOTE / COSE DA FARE 
+
+-- in MYSQL esiste un tipo ENUMERETION per TIPOLOGIA e CATEGORIA in ASTA?
+
+-- per risolvere le relazioni molti a molti ( cioè: n-n/*-* ), preferisci che abbiano come nome il nome delle relazioni che stanno risolvendo, o che abbiano un nome esplicativo, o entrambi?
+-- es: 
+-- 		1)utente_asta 
+-- 		2)partecipazione 
+-- 		3)partecipazione_utente_asta / partecipazioneUtenteAsta
+
+-- usare: _ o MAIUSCOLE?
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.asta 
+(
+	Titolo VARCHAR(30) NOT NULL,
+	Descrizione VARCHAR(130),
+	Categoria varchar(30) NOT NULL,
+	Tipologia varchar(30) NOT NULL,
+	DataInizio DATETIME NOT NULL,
+	DataFine DATETIME NOT NULL,
+	OffertaPiuAlta float,
+	FotoProfilo varchar(300),
+  
+	ID_asta INT AUTO_INCREMENT NOT NULL,
+	Proprietario_FK int NOT NULL,
+    
+	PRIMARY KEY (ID_asta),
+    FOREIGN KEY (Proprietario_FK) REFERENCES partecipazione(ID_Utente)
+  );
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.partecipazione
+(
+	ID_Utente INT,
+    ID_Asta INT,
+    
+	PRIMARY KEY (ID_Utente, ID_Asta),
+	FOREIGN KEY (ID_Asta) REFERENCES asta(ID_asta),
+    FOREIGN KEY (ID_Utente) REFERENCES utente(ID_Utente)
+);
+
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.concorrentiAsta
+(
+	ID_Utente INT,
+    ID_Asta INT,
+    
+	PRIMARY KEY (ID_Utente, ID_Asta),
+	FOREIGN KEY (ID_Asta) REFERENCES asta(ID_asta),
+    FOREIGN KEY (ID_Utente) REFERENCES utente(ID_Utente)
+);
+
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.utente (
+  Nome VARCHAR(30) NOT NULL,
+  Cognome VARCHAR(30) NOT NULL,
+  Biografia VARCHAR(300),
+  Geolocalizzazione VARCHAR(50) ,
+  ElencoSocial VARCHAR(30),
+  FotoProfilo VARCHAR(300),
+  IsAmministratore boolean,
+  EmailUtente varchar(40),
+  PasswordUtente varchar(30),
+
+  ID_Utente INT AUTO_INCREMENT NOT NULL,
+  ElencoRecensioni_FK INT NOT NULL,
+  ElencoAste_FK INT NOT NULL,
+  ElencoNotifiche_FK int not null,
+  
+  PRIMARY KEY (ID_Utente),
+  FOREIGN KEY (ElencoNotifiche_FK) REFERENCES notifiche(ID),
+  FOREIGN KEY (ElencoRecensione_FK) REFERENCES recensione(ID),
+  FOREIGN KEY (ElencoAste_FK) REFERENCES Asta(ID)
+  );
+  
+  CREATE TABLE IF NOT EXISTS auctionlinedb.notifiche 
+  (
+    Testo varchar(50) NOT NULL,
+    
+	ID_notifiche INT AUTO_INCREMENT NOT NULL,
+    
+    PRIMARY KEY (ID_notifiche)
+    );
+    
+  CREATE TABLE IF NOT EXISTS auctionlinedb.recensione 
+  (
+	NomeCompratore VARCHAR(30) NOT NULL,
+    Titolo varchar(20) not null,
+	Contenuto varchar(200),
+	numeroStelle int not null,
+	  
+	ID_recensione INT AUTO_INCREMENT NOT NULL,
+	Compratore_FK int NOT NULL,
+  
+	PRIMARY KEY (ID_recensione),
+	FOREIGN KEY (Compratore_FK) REFERENCES utente(ID)
+  );

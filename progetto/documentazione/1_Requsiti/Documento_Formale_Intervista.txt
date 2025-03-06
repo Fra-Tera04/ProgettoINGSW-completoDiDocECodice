@@ -1,0 +1,189 @@
+PDF Documento Formale per Intervista Cliente
+
+
+
+
+Analisi dei Requisiti:
+
+
+
+	Requsiti Utente:	
+
+		1)
+			Un utente può registrare un nuovo account ed utilizzarlo
+			per accedere al sistema.
+		  	Un account può essere di due tipi: venditore o
+			acquirente.
+		  	La stessa e-mail può essere utilizzata per al più
+			un account venditore e un account compratore.
+			È apprezzata la possibilità di effettuare
+			la registrazione utilizzando credenziali di terze parti
+			(e.g.: Google, Facebook, GitHub, etc…).
+			Gli utenti possono personalizzare il proprio profilo
+			con una short bio, link al proprio sito web,
+			ai propri social, all'area area geografica, etc.
+
+		2) 
+			Il sistema permette ai venditori/compratori di creare
+			aste di diverso tipo per la vendita/acquisto
+			di beni/servizi e presentare offerte per le aste
+			correntemente attive.
+			Ciascuna asta è caratterizzata da una descrizione
+			del bene/servizio in vendita e, opzionalmente,
+			da una fotografia dello stesso.
+			Ciascuna asta inoltre è caratterizzata da una categoria
+			(e.g.: elettronica, informatica, giocattoli, alimentari,
+			 servizi, etc…), introdotta per facilitare
+			la navigazione tra le tante aste presenti nel sistema.
+
+		3)
+			Venditori e compratori possono effettuare ricerche
+			tra le aste correntemente attive, filtrando per
+			categoria e/o per parole chiave, e visualizzare
+			i dettagli di ciascuna asta.
+			Inoltre, è possibile visualizzare anche il
+			profilo utente del venditore che ha creato l’asta.
+ 
+		4) 
+			Un venditore può creare una nuova Asta a tempo fisso.
+			Un’asta a tempo fisso è caratterizzata da
+			una data di scadenza, scelta dal venditore.
+			Inoltre, il venditore può specificare una
+			soglia minima (segreta) di prezzo al quale vendere
+			il prodotto.
+			Gli acquirenti possono visualizzare i dettagli
+			dell’asta, inclusa l’offerta più alta ricevuta finora,
+			ma non la soglia minima di prezzo fissata dal venditore.
+			Gli acquirenti possono, fino alla data di scadenza
+			dell’asta, presentare delle offerte migliorative
+			rispetto alla migliore offerta corrente,
+			specificando l’importo desiderato (in €).
+			Al momento della scadenza, il compratore con
+			l’offerta più alta si aggiudica il bene/servizio.
+			Se non si raggiunge la soglia minima segreta
+			impostata dal venditore, l’asta viene considerata fallita.
+			In entrambi i casi, il venditore e tutti gli 
+			acquirenti che hanno partecipato all’asta visualizzano
+			una notifica.
+
+		5) 
+			Un venditore può creare una nuova Asta all’inglese
+			(o incrementale).
+			Un’asta all’inglese è caratterizzata da una
+			base d’asta iniziale pubblica, specificata dal venditore
+			al momento della creazione dell’asta, da un intervallo
+			di tempo fisso per presentare nuove offerte
+			(di default 1 ora), e da una soglia di rialzo
+			(di default 10€).
+			Gli acquirenti possono presentare un’offerta per
+			il prezzo corrente.
+			Quando viene presentata un’offerta, il timer per
+			la presentazione di nuove offerte viene resettato.
+			Quando il timer raggiunge lo zero senza che siano
+			presentate nuove offerte, l’ultima offerta si aggiudica
+			il bene/servizio in vendita,
+			e il venditore e gli acquirenti che hanno partecipato
+			all’asta visualizzano una notifica.
+
+		6) 
+			I compratori che si aggiudicano una fornitura
+			possono lasciare un feedback al venditore.
+			Il feedback consiste in un valore numerico da 1 a 5
+			e in una descrizione testuale di al più 140 caratteri.
+			Il punteggio medio di un venditore viene visualizzato
+			nelle aste da lui create.
+
+		7) 
+			Un amministratore può accedere al sistema,
+			visualizzare statistiche sul numero di aste attive,
+			numero di aste complessive,
+			numero di offerte medie per asta, etc.
+	
+
+
+
+
+
+
+	Requisiti di Sistema:
+		
+		1)
+			Un visitaore del sito può registrarsi o loggare al sito tramite: e-mail e password, o usando credenziali di terze parti ( Google, Facebook ).
+			Ogni utente registrato può accedere alle funzioni di compra-vendita del sito.
+			Ogni Utente Registrato può essere di tipo Venditore e/o Compratore.
+			Ogni Utente Registrato può personalizzare il proprio profilo ( bio, link al sito personale, link ai social, area geografica ).
+
+		2)
+			Il sistema permette agli Utenti Registrati di creare aste ( i tipi disponibili ) per beni e servizi.
+			Ogni Utente Registrato può acquistare un bene/servizio facendo un'offerta per lo stesso e aggiudicandoselo secondo le regole dell'asta.
+			Ogni Asta è caratterizzata da una serie di inforamzioni sul prodotto, quali: descrizione generale del prodotto, descrizione tramite parole chive, categoria del prodotto tra quelle disponibili, e opzionalmente una fotografia.
+
+		3)
+			Le ricerche sul Sito avvengono tramite ricerca del nome del prodotto.
+			Inoltre, queste ultime sono agevolate da un sistema di filtraggio in base: al nome del venditore, parole chiavi riguardanti il prodotto, categoria del prodotto.
+			Inoltre, è possibile Visualizzare il profilo di ogni Venditore.
+
+		4)
+			I tipi di Aste sono: 
+			a Tempo Fisso, ovvero: 
+				un asta caratterizzata da una data di scadenza scelta dal venditore, con opzionalmente una soglia minima e segreta al quale viene venduto il prodotto;
+				ogni utenti possono visualizzare i dettagli dell'asta sopra specificati, inclusa l'offerta più alta;
+				ogni utente registrato può fare un'offerta;
+				ogni utente registrato può migliorare la propria precedente offerta, indicando il nuovo importo in euro ( solo se l'asta non è conclusa )
+				al momento della scadenza l'utente registrato con l'offerta più alta si aggiudica l'aquisto del bene/servizio;
+				al momento della scadenza se non si è raggiunta la soglia minima segreta imposta dal venditore, l'asta viene fallita ( annullata );
+				al momento della conclusione dell'asta tutti gli utentei registrati che hanno partecipato all'asta ricevono una notifica d'avviso di conclusione dell'asta.
+				
+				
+			all'Inglese ( o Incrementale ) ovvero:
+				una caratterizzata da una base d'asta iniziale e publica, specificata dal venditore al momento della creazione;
+				da un limite di tempo per presentare nuove offerte, scelto dal venditore ( di default una ( 1 ) ora;
+				da una soglia di rialzo spacificata dal venditore ( di default dieci ( 10 ) euro;
+				ogni utente può visualizzare la'asta;
+				ogni utenet regisrato può presentare un'offerta per il prezzo corrente;
+				ogni presentazione d'offerta fa cominciare il timer;
+				quando il timer scade ( raggiunge lo zero ), senza che siano state fatte nuove offerte, l'utente con l'ultima offerta registrata si aggiudica il bene/servizio in vendita;
+				alla fine dell'asta ogni utente registrato che ha parteipato all'asta riceve una notifica di conclusione asta;
+			
+	
+		5)
+			Ogni utente che si aggiudica un bene/servizo a un'asta può lascaire un feedback numerico pubblico, come valutazione della qualità del prodotto;
+			Ogni feedback è composto da un valore numerico intero o frazionario compreso tra 1 e 5 inclusi, e un commento testuale facoltativo di al più 140 caratteri;
+			il punteggio medio di un venditore viene visualizzato nelle aste da lui create e nel suo profilo.
+
+		6)
+			un utenet, avente le credenziali, può accedere come addetto all'amminstrazione del sistema;
+			un adimin del sistema può visualizzare almeno:
+				le statistiche sul numero di aste attive in quel momento,
+				il numero complessivo di aste fino a quel momento,
+				il numero di offerte media per asta.
+
+
+
+
+
+
+
+
+
+
+
+Casi D'Uso:
+
+	(add pdf usecase vpo)
+
+
+Mockup:
+
+	(link to figma-mockup)
+
+
+
+
+
+
+
+Personans:
+	
+	(in piu se vuoi)
+	(add pdf personas)

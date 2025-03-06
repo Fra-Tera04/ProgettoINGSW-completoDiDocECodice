@@ -1,0 +1,36 @@
+TEMPOFISSO:
+rilancio = ultimaofferta + sogliaRialzo
+dove la soglia di rialzo è inputUtente
+
+
+INGLESE:
+ResetTimer
+rilancio = ultimaofferta + sogliaRialzo
+dove la soglia di rialzo è scelta fissa scelta dal venditore
+
+Per servlet "RilancioAstaServlet":
+
+
+Valori invalidi per entrambi i tipi:
+
+	CE1: {(nuovaOfferta != ultimaOfferta + sogliaRialzo)}
+	NON VALIDA
+
+	CE2: {(sogliaRialzo < 1) || (sogliaRialzo = null)}
+	NON VALIDA
+
+	CE3: {(IDOffertaPiùAlta != IDCompratore)}
+	NON VALIDA
+
+per asta a tempo fisso
+
+	.CE4: {(nuovaOfferta == ultimaOfferta + sogliaRialzo) && (sogliaRialzo > 0)}
+	VALIDA
+
+per asta all'inglese
+	
+	CE5 {(timer.newValue != resetTimer)}
+	NON VALIDA
+
+	.CE6 {(nuovaOfferta == ultimaOfferta + sogliaRialzo) && (timer.newValue == resetTimer)}
+	VALIDA

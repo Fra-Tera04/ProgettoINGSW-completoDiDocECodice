@@ -1,0 +1,76 @@
+SCELTE EFFETTUATE IN FASE DI PROGETTAZIONE ED IMPLEMENTAZIONE
+
+1	Chi siamo - Vogliamo illustrare nel dettaglio tutte le nostre scelte in fase di progettazione ed implementazione.
+	La prima cosa che abbiamo scelto è il tipo di applicazione che volevamo realizzare, 
+	entrambi d’accordo sulla creazione di un app web.
+	
+	PERCHE' UN'APP WEB? 
+	Data la natura della richiesta e il nostro target utenti, un sito dove tutti potessero collegarsi facilmente
+	senza dover installare e configurare un'app ci sembrava la scelta migliore.
+	Le aste sono frequentate per lo più da adulti over 35, persone non molto pratiche della tecnologia e di conseguenza
+	potrebbero demoralizzarsi anche avanti ad un semplice download e login in un'app.
+	Inoltre l'app web ci permetteva di usare gli strumenti più importanti nel campo del front end, ovvero HTML/CSS .
+
+	target utenti over 35 non è pratico 
+	difficoltà 
+	htnl/css 
+
+	
+2	Criteri di design a cui abbiamo dato più importanza e perché:
+	1- User-end: Per noi è di fondamentale importanta l'esperienza utente, per un discorso di fidelizzazione,
+		      	nessuno consiglierebbe un'app brutta o poco pratica.
+	2- Affidabilità: Data l’elevata presenza di un target di utenti poco pratico con la tecnologia, è stata necessaria 
+			la realizzazione di un software robusto, tollerante agli errori e attendibile.
+			Robusto=Capacità di sopravvivere ad input non validi immessi dall’utente
+			Attendibile= ogni tasto fa quello che ci aspettiamo faccia.
+			Questo fa sentire l'utente più autorizzato ad esplorare il sito.
+
+	3- Manutenzione: Orientato al progresso : abbiamo fatto in modo che future modifiche non richiedono 
+			lo stravolgimento del software.
+
+			Come?
+			Utilizzo di un’architettura a layer.
+			Utilizzo di interfacce java (JPARepository)
+			Utilizzo di Hibernate per astrarre la gestione del database.
+		Andiamo a vedere il tutto nel dettaglio e perché abbiamo scelto proprio queste e quali sono tutti i vantaggi
+		che abbiamo tratto dallo scegliere proprio queste.
+
+		
+3	ARCHITETTURA: QUAL E' LA SCELTA CHE FA AL CASO NOSTRO:
+	Abbiamo optato per un'architettura aperta monolitica suddivisa in quattro layer. 
+	PERCHE: Monolitica perché è il processo di sviluppo piu solido e documenatto ed è più semplice lavorare su un'unica base di codice.
+		La scelta dei layers l'abbiamo fatta per un discorso di astrazione e per semplificare la modifica o ingrandimento
+		del codice.
+
+	LAYER E PARTIZIONI
+	Oltre ad una divisione verticale del progetto, abbiamo effettuato una divisione orizzontale.
+	Partizionando ogni singolo layer permettendoci di distribuire in maniera bilanciata responsabilità
+	e carico di lavoro.
+
+	monolitica -> processo di lavoro solido, + semplice lavorare su un'unica base di codice
+	layer -> aumentare la coesione, bilanciare responsabilità e carico di lavoro
+	
+
+4	LA SCELTA DELLE TECNOLOGIE: PERCHE' PROPRIO QUELLE?
+	Apache Maven è stato il primo strumento che abbiamo scelto, uno strumento di build automation. Il vantaggio derivante 
+	dall’utilizzo di questo tool è da subito evidente: se generalmente per sviluppare un software sono necessarie numerose fasi, 
+	con la build automation l’intero processo viene automatizzato, riducendo il carico di lavoro del programmatore e diminuendo 
+	le possibilità di errore da parte dello stesso.
+
+	Il secondo tool che abbiamo scelto è Hibernate, 
+	che rende le interazioni con il database più semplici.
+
+5	HIBERNATE: VANTAGGI
+	1- La connessione al db si ottiene tramite un singolo file di persistenc, garantendoci protabilità ed efficienza.
+	2- Maggiore produttività, scriviamo più funzionalità usando meno codice.
+	2.5- cosa fa hibernate, semplifica la comunicazione tra layer
+	3- Hibernate ci permette la comunicazione tra layer. Ma com'è fatta nel dettaglio?
+	    Le JSP prendono gli input dell'utente vengono passati alle servlet. 
+	    Le Servlet richiamano i controlli e CI reindirizzano in un'altra finestra.
+	    Le JPA Separano SQL dalla logica aziendale. Ciò ci consente di lavorare con un livello di astrazione più elevato
+	    e offre maggiore portabilità.
+	    le JPARepository per mappare una ad una le tabelle nel db con le entità nel backend.
+	
+	
+	
+6	RISULTATO FINALE INTERFACCIA: esempio rilancio di un'asta.

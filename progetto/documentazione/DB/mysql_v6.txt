@@ -1,0 +1,111 @@
+-- NOTE / COSE DA FARE: 
+
+
+-- 		in MYSQL esiste un tipo ENUMERETION per TIPOLOGIA e CATEGORIA in ASTA?
+
+-- 		partecipazione_utente_asta OPPURE partecipazioneUtenteAsta?
+
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.asta 
+(
+	Titolo VARCHAR(30) NOT NULL,
+	Descrizione VARCHAR(130),
+	Categoria varchar(30) NOT NULL,
+	Tipologia varchar(30) NOT NULL,
+	DataInizio DATETIME NOT NULL,
+	DataFine DATETIME NOT NULL,
+	OffertaPiuAlta float,
+	FotoProfilo varchar(300),
+  
+	ID_asta INT AUTO_INCREMENT NOT NULL,
+	Proprietario_FK int NOT NULL,
+    
+	PRIMARY KEY (ID_asta)
+    
+  );
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.partecipazioneUtenteAsta
+(
+	ID_Utente INT,
+    ID_Asta INT,
+    
+	PRIMARY KEY (ID_Utente, ID_Asta)
+	
+);
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.concorrentiUtenteAsta
+(
+	ID_Utente INT,
+    ID_Asta INT,
+    
+	PRIMARY KEY (ID_Utente, ID_Asta)
+	
+);
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.utente 
+(
+  Nome VARCHAR(30) NOT NULL,
+  Cognome VARCHAR(30) NOT NULL,
+  Biografia VARCHAR(300),
+  Geolocalizzazione VARCHAR(50) ,
+  ElencoSocial VARCHAR(30),
+  FotoProfilo VARCHAR(300),
+  IsAmministratore boolean,
+  EmailUtente varchar(40),
+  PasswordUtente varchar(30),
+
+  ID_Utente INT AUTO_INCREMENT NOT NULL,
+  ElencoRecensioni_FK INT NOT NULL,
+  ElencoAste_FK INT NOT NULL,
+  ElencoNotifiche_FK int not null,
+  
+  PRIMARY KEY (ID_Utente)
+  
+  );
+  
+CREATE TABLE IF NOT EXISTS auctionlinedb.notifiche 
+(
+    Testo varchar(50) NOT NULL,
+    
+	ID_notifiche INT AUTO_INCREMENT NOT NULL,
+    
+    PRIMARY KEY (ID_notifiche)
+    );
+    
+CREATE TABLE IF NOT EXISTS auctionlinedb.recensione 
+(
+	NomeCompratore VARCHAR(30) NOT NULL,
+    Titolo varchar(20) not null,
+	Contenuto varchar(200),
+	numeroStelle int not null,
+	  
+	ID_recensione INT AUTO_INCREMENT NOT NULL,
+	Compratore_FK int NOT NULL,
+  
+	PRIMARY KEY (ID_recensione)
+	
+  );
+
+
+ALTER TABLE ASTA
+add FOREIGN KEY (Proprietario_FK) REFERENCES partecipazioneUtenteAsta(ID_Utente);
+
+ALTER TABLE partecipazioneUtenteAsta
+add FOREIGN KEY (ID_Asta) REFERENCES asta(ID_Asta),
+add FOREIGN KEY (ID_Utente) REFERENCES utente(ID_Utente);
+
+ALTER TABLE concorrentiUtenteAsta
+add FOREIGN KEY (ID_Asta) REFERENCES asta(ID_asta),
+add FOREIGN KEY (ID_Utente) REFERENCES utente(ID_Utente);
+
+ALTER TABLE utente
+add FOREIGN KEY (ElencoNotifiche_FK) REFERENCES notifiche(ID_notifiche),
+add FOREIGN KEY (ElencoRecensioni_FK) REFERENCES recensione(ID_recensione),
+add FOREIGN KEY (ElencoAste_FK) REFERENCES Asta(ID_asta);
+
+ALTER TABLE recensione
+add FOREIGN KEY (Compratore_FK) REFERENCES utente(ID_utente);
+
+
+
+-- dopo un'analisi a mente lucida, si nota una ridondaza tra concorrentiUtenteAsta e partecipazioneUtenteAsta, si puù dorp una delle due table

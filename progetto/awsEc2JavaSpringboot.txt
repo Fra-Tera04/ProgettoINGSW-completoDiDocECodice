@@ -1,0 +1,84 @@
+Schema parti progetto
+---------------------
+
+
+java
+	progetto
+		frontend	javafx
+		core		java
+		backend 	java + docker
+
+
+docker
+	dockerizzare progetto + use postgress
+	use 
+		docekrfile
+			enstablish 
+				java file 
+					con eclipse-temurin:latest
+			
+				db
+					con 
+						postre:16-alpine
+		compose.yml
+			per gestire 
+				porte
+				volumi
+				user/pswd
+
+ec2
+	ssh
+	install docekr
+	pull img
+	save volume
+	close
+
+
+Approfondimento e Versioni Precedenti
+-------------------------------------
+
+
+V1
+--
+
+su java
+	creare un helloworld
+	crare progetto springboot 
+		non funziona marckertplace springtool
+		parte tomcat ma non ma mi da errore
+	tramite maven
+
+-
+su docker 
+	crea imagine di
+		postres
+		java backend o tutto cmq di springboot
+
+	settare dockerfile con 
+		eclipse-temurin:latest
+		postre:16-alpine
+
+	settare compose.yml
+		volumi 
+			su cartella dedicata oppure cartella standard
+-
+
+su aws ec2 
+	connect ssh
+	install docker 
+	inistall nomeDocker/nomeImagine precedentemente creati e risiedenti su dockerhub (in teoria)
+	run immagine
+	fai cose 
+	copy volumi 
+		create file jar
+		transfer tramite scp 
+			( 
+			  https://www.docker.com/blog/back-up-and-share-docker-volumes-with-this-extension/ 
+			  https://medium.com/@ioannis.gkikasth/how-to-migrate-a-docker-volume-from-one-machine-to-another-7445ff172957
+			)
+
+
+
+
+
+

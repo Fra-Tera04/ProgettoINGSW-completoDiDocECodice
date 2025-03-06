@@ -1,0 +1,85 @@
+Cosa fare?
+
+
+odine
+	alalisi req - ok
+	specifica req - atwork
+	architettura, criteri e motivaz. -
+	tecnologie -
+	diagrammi -
+	codice -
+	testing -
+
+
+
+Prossimo Passo:
+	class D.	
+	statechart
+	seq.
+
+
+Elenco Completo:
+
+	documento requisiti sw
+		analisi req
+			-usecase 				
+			-personas				
+			-cockburn				
+			-mockup					
+			-valutaz. usab.				
+			glossario			
+	
+		specifica req
+			classi , ogg., relazioni di analisi	
+				cd.1
+				crc -> documentate 
+			seq. diag.
+				sq.1				
+			stetchart				
+	
+	documento design
+
+		descrizione architettura proposta
+			architettura 
+				client-server
+				3 layer
+			
+			criteri di design
+				obiettivi qualitativi sw
+				sottosistemi
+			
+			motivazioni
+				leggi di design consigliate/scelte
+		
+				file:///C:/Users/Lenovo/Desktop/Informatica/UNIVERSITA/3Terzo%20anno/Primo_Semestre/Corso_IngSw/insw_2324/slides/06_System%20Design%20+%20DesignPractices.pdf
+
+
+		scelta tecnologiche
+			frontend
+				java fx
+			backend
+				java bootspring
+				amazon ecs			
+				...
+		class diagram
+			espanzione cd.1 					
+		seq. diag. per cockburn				
+			sq1
+			sq2
+
+	codice
+		autobuld-dockerfile,github,dockerhub	
+			aws ecs...
+			docker
+			github
+			dockerhub
+	
+		github-verioning				
+		sonarqube					
+
+	testing
+		xUnit black+white
+			caso1
+			caso2				
+		valutaz. usab. sul campo 
+			(?)			

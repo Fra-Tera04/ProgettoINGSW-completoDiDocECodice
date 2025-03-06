@@ -1,0 +1,79 @@
+Per servlet "AggiornaMioProfiloServlet":
+
+Quando tutti i valori sono vuoti:
+
+	CE1: {nuovaposizione.lenght= 0  &&  nuovoSocial.lenght = 0  &&  nuovaEmail.lenght = 0  &&  nuovaBiografia.lenght = 0}
+	NON VALIDA
+
+Quando almeno un valore è non valido:
+
+	CE2: {nuovaposizione.lenght > 50 || nuovoSocial.lenght > 300 || nuovaEmail.lenght > 40 || nuovaBiografia.lenght > 1000 }
+	NON VALIDA
+
+Quando l'input è un misto tra valori nulli e validi con almeno un valore diverso da zero:
+
+Macrocategoria 1:uno non vuoto
+
+	CE3 = {(nuovaposizione.lenght <= 50) && (nuovoSocial = NULL) && (nuovaEmail.lenght = NULL) && (nuovaBiografia.lenght = NULL)}
+	VALIDA
+
+	CE4 = {(nuovaposizione = NULL) && (nuovoSocial.lenght <= 300) && (nuovaEmail.lenght = NULL) && (nuovaBiografia.lenght = NULL)}
+	VALIDA
+
+	CE5 = {(nuovaposizione = NULL) && (nuovoSocial = NULL) && (nuovaEmail.lenght <= 40) && (nuovaBiografia.lenght = NULL)}
+	VALIDA
+
+	CE6 = {(nuovaposizione = NULL) && (nuovoSocial = NULL) && (nuovaEmail.lenght = NULL) && (nuovaBiografia.lenght <= 100)}
+	VALIDA
+
+Macrocategoria 2: due non vuoti
+
+	CE7 = {(nuovaposizione.lenght <= 50) && (nuovoSocial.lenght <= 300) && (nuovaEmail.lenght = NULL) && (nuovaBiografia.lenght = NULL)}
+	VALIDA
+
+	CE8 = {(nuovaposizione.lenght <= 50) && (nuovoSocial = NULL) && (nuovaEmail.lenght <= 40) && (nuovaBiografia.lenght = NULL)}
+	VALIDA
+
+	CE9 = {(nuovaposizione.lenght <= 50) && (nuovoSocial = NULL) && (nuovaEmail.lenght = NULL) && (nuovaBiografia.lenght <= 100)}
+	VALIDA
+
+	CE10 = {(nuovaposizione = NULL) && (nuovoSocial.lenght <= 300) && (nuovaEmail.lenght <= 40) && (nuovaBiografia.lenght = NULL)}
+	VALIDA
+
+	CE11 = {(nuovaposizione = NULL) && (nuovoSocial.lenght <= 300) && (nuovaEmail.lenght = NULL) && (nuovaBiografia.lenght <= 100)}
+	VALIDA
+
+	CE12 = {(nuovaposizione = NULL) && (nuovoSocial = NULL) && (nuovaEmail.lenght <= 40) && (nuovaBiografia.lenght <= 100)}
+	VALIDA
+
+Macrocategoria 3: tre non vuoti
+
+	CE13 = {(nuovaposizione.lenght <= 50) && (nuovoSocial.lenght <= 300) && (nuovaEmail.lenght <= 40) && (nuovaBiografia.lenght = NULL)}
+	VALIDA
+
+	CE14 = {(nuovaposizione = NULL) && (nuovoSocial.lenght <= 300) && (nuovaEmail.lenght <= 40) && (nuovaBiografia.lenght <= 100)}
+	VALIDA
+
+	CE15 = {(nuovaposizione.lenght <= 50) && (nuovoSocial = NULL) && (nuovaEmail.lenght <= 40) && (nuovaBiografia.lenght <= 100)}
+	VALIDA
+
+	CE16 = {(nuovaposizione.lenght <= 50) && (nuovoSocial.lenght <= 300) && (nuovaEmail.lenght = NULL) && (nuovaBiografia.lenght <= 100)}
+	VALIDA
+
+Macrocategoria 4: nessuno vuoto
+
+	CE17= {abcd}  {(nuovaposizione.lenght <= 50) && (nuovoSocial.lenght <= 300) && (nuovaEmail.lenght <= 40) && (nuovaBiografia.lenght <= 100)}
+	VALIDA
+
+
+
+
+
+
+
+
+
+
+
+
+

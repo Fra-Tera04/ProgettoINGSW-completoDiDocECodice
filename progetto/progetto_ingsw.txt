@@ -1,0 +1,149 @@
+INGSW 23-24
+-----------
+
+
+Categorie tratta 
+
+	Immobili		famiglie 30anni + imprenditori 20-60
+	Telefonia e Tablet	20+
+	Arte			famiglie e singoli benestanti
+	Elettronica		
+	Giocattoli		famiglie con figli 
+	Usato/Vintage		singoli ~30			
+
+
+
+Target - Personas
+
+	Venditori		-	privati
+				-	Imprenditori
+				-	appassionati
+				-	store ufficiali
+
+
+	Acquirenti		-	privati
+				-	Famiglie
+				-	cittadini
+				-	appassionati
+
+
+	Immobili 		-	imprenditori
+				-	neo famiglie 
+	
+	Elettronica		-	cose da cucina
+
+	Tablet e Telefonia	-	
+				
+
+Use case
+
+	Attori
+		utente non Registrato
+		Utente venditori
+		Utente acquirenti
+		Utente admin
+
+		google terze parti
+
+	Azioni
+
+		azioni unknow
+			vedere tipi di aste
+			loin
+
+		azioni utente
+			logout
+			modifica profilo			
+			vend -> crea tipo asta
+				asta a tempo fisso
+				asta all'inglese 
+			comp -> acquisto bene/servizio
+			(feedback per fornitura*)
+			ricerca aste
+			visualizzazione profili
+			visualizzazione e modifica del prorpio profilo
+
+		azioni admin
+			statistiche		
+		
+			
+
+		vendere
+			
+
+		comprare
+
+
+		ricerche-visualizz
+			tutti
+	casi d'uso
+		
+		attori
+		azioni
+			comprare
+				utenti-comp	
+
+			vendere
+				unknow
+				utenti-vend-comp-adm
+	
+			ricerca
+				tutti
+
+			visualizzazione statistiche
+				admin
+
+			
+			
+			login
+			logout
+			
+
+
+
+			*
+			feedback per fornitura -> sezione feedback -> storico acquisti in cui vedi anche i feedback => feedback non è una funzionalità a parte ma un passaggio durante la vendita.
+
+			feedback è una funzionalità a parte e va gestita come sezione.
+ 
+Caratteristiche di dominio
+	
+	Documentazione vendita
+		immobili	-	
+		telfonia	-	
+		arte		-	
+		vinted		-	
+
+
+Tipo di aste
+
+
+
+
+			
+
+
+
+
+statechart
+pdf - requisiti utente e sistema
+
+
+
+req in relazione generale
+
+Req	funz.	->	funzionalità
+	Non f.	->	vincoli verificabili e quantificabili
+			Vincoli sul tipo di sistema (prodotto, organizzazione, esterni)
+	Dominio ->	vincoli di standard di settore 
+
+
+
+
+
+
+
+
+
+
+

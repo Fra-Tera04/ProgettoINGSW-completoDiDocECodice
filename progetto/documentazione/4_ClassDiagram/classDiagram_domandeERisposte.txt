@@ -1,0 +1,65 @@
+cosa fare?
+lavorare sulle classi e specializzarle poi
+lavorare -> 
+		fare schema uml class diagram semplice
+		che deve essere un quacosa tipo 
+			dizionario visuale del dominio
+			senza dao
+			senza specificazioni
+			evitiamo gui( ? sul fatto di analisi )
+
+
+elenco classi scelte da emy
+
+	login
+	home
+	ricerca
+	homecontroller			-
+	astaregistrazioneUtente		-
+	utenteCOntroller		-
+	notifica
+	utente
+	recensione
+	scriveriRecensione		-
+
+
+elenco classi ( che rappresentano il dominio )
+	
+	E.C. di analisi
+		utente
+		asta
+			astaInglese	
+			astaFissa
+		recensione
+
+
+elenco classi da aggiungere per class diagram di design
+
+	E.C. di analisi
+		...
+
+	E.C. di gui parziale
+		home
+		login
+		registrazione
+		ricerca
+		notifica
+
+	E.C. di DAO e Controller e db
+		controllerGui
+		conrtollerDao
+		elencoClassiDao ( che ancora non so )
+		DatabaseAws
+
+
+
+
+
+
+
+
+
+
+
+vinxita asta
+

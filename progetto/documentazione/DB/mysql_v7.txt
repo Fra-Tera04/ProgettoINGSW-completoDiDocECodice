@@ -1,0 +1,97 @@
+DOMANDE:
+1-Ci sono un paio di cose che non mi sono chiare, come aggiungiamo 5 notifiche allo stesso utente?Non conviene mettere l'ID utente nelle notifiche? Stessa cosa x recensione (cosi assicuriamo il rapporto 1 a molti)
+
+-- Utente.isAmministratore tolto
+-- utente.FotoProfilo aumentato: 300 -> 1000
+-- utente.Biografia aumentato: 300 -> 1000
+-- asta.Descrizione aumentato: 130 -> 1000 
+-- partecipazioneUtenteAsta ( concorrentiUtenteAsta ha vinto se a te sta bene ): tolto 
+-- eliminato tabella recensione
+-- utente.notifiche_fk eliminato 
+-- add notifiche.id_utente_fk 
+-- o smantelli e installi
+-- add linee a pie di pagina
+-- 
+-- popolamento db
+
+
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.asta 
+(
+	Titolo VARCHAR(30) NOT NULL,
+	Descrizione VARCHAR(1000), -- fix
+	Categoria ENUM ('TabletTelefonia', 'Giocattoli', 'Elettronica', 'Arte', 'Immobili', 'Antiquariato'),
+	Tipologia ENUM('Asta inglese', 'Asta a tempo fisso'),
+	DataInizio DATETIME NOT NULL,
+	DataFine DATETIME NOT NULL,
+	OffertaPiuAlta float,
+	FotoAsta1 varchar(500), 
+  
+	ID_asta INT AUTO_INCREMENT NOT NULL,
+	Proprietario_FK int NOT NULL,
+    
+	PRIMARY KEY (ID_asta)
+    
+  );
+
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.concorrentiUtenteAsta
+(
+	ID_Utente INT,
+    	ID_Asta INT,
+    
+	PRIMARY KEY (ID_Utente, ID_Asta)
+	
+);
+
+CREATE TABLE IF NOT EXISTS auctionlinedb.utente 
+(
+	 Nome VARCHAR(30) NOT NULL,
+	 Cognome VARCHAR(30) NOT NULL,
+	 Biografia VARCHAR(1000), -- fix
+ 	 Geolocalizzazione VARCHAR(50) ,
+ 	 ElencoSocial VARCHAR(30),
+ 	 FotoProfilo VARCHAR(1000), -- fix
+	 EmailUtente varchar(40),
+ 	 PasswordUtente varchar(30),
+
+ 	 ID_Utente INT AUTO_INCREMENT NOT NULL,
+ 	 ElencoRecensioni_FK INT,
+ 	 ElencoAste_FK INT,
+ 	 ElencoNotifiche_FK int, -- delete
+  
+  	PRIMARY KEY (ID_Utente)
+  
+  );
+  
+CREATE TABLE IF NOT EXISTS auctionlinedb.notifiche 
+(
+    	Testo varchar(50) NOT NULL,
+    	
+	ID_notifiche INT AUTO_INCREMENT NOT NULL,
+    	id_utente_fk int, -- add
+
+    	PRIMARY KEY (ID_notifiche)
+    );
+    
+
+ALTER TABLE ASTA
+add FOREIGN KEY (Proprietario_FK) REFERENCES partecipazioneUtenteAsta(ID_Utente);
+
+ALTER TABLE partecipazioneUtenteAsta
+add FOREIGN KEY (ID_Asta) REFERENCES asta(ID_Asta),
+add FOREIGN KEY (ID_Utente) REFERENCES utente(ID_Utente);
+
+ALTER TABLE concorrentiUtenteAsta
+add FOREIGN KEY (ID_Asta) REFERENCES asta(ID_asta),
+add FOREIGN KEY (ID_Utente) REFERENCES utente(ID_Utente);
+
+ALTER TABLE utente
+add FOREIGN KEY (ElencoNotifiche_FK) REFERENCES notifiche(ID_notifiche),
+add FOREIGN KEY (ElencoRecensioni_FK) REFERENCES recensione(ID_recensione),
+add FOREIGN KEY (ElencoAste_FK) REFERENCES Asta(ID_asta);
+
+ALTER TABLE notifiche
+add FOREIGN KEY (id_utente_FK) REFERENCES utente(ID_utente);
+
+

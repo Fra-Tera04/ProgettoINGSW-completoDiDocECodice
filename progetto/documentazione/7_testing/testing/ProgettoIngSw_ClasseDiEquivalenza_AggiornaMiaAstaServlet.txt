@@ -1,0 +1,32 @@
+Per servlet "AggiornaMiaServlet":
+
+
+.Valori nulli per asta a tempo fisso:
+	
+	CE1: {nuovaDataScadenza == dataScadenzaCorrente}
+	NON VALIDO
+
+.Valori nulli per asta all'inglese:
+
+	CE2: {(nuovaSogliaRialzo = 0) && (nuovoTimer = timerCorrente)}
+	NON VALIDO
+
+.Valori non validi per asta a tempo fisso:
+
+	CE3: {(nuovaDataScadenza < currDate) || (il format della data non è mm:dd:yyyy)}
+	NON VALIDO
+
+.Valori non validi per asta all'inglese:
+
+	CE4: {(nuovaSogliaRialzo < 1) || (nuovoTimer <= "00:00:00") || (il format del timer non è hh:mm:ss)}
+	NON VALIDO
+______________________________________________________________________________________________________
+.Input validi per aste a tempo fisso:
+
+	CE5: {(nuovaDataScadenza > currDate) && (nuovaDataScadenza != dataScadenzaCorrente)}
+	VALIDO
+
+.Input valido per aste all'inglese:
+
+	CE6: {(nuovaSogliaRialzo > 0 ) || (nuovoTimer != timerCorrente) && (nuovoTimer > "00:00:00")}
+______________________________________________________________________________________________________

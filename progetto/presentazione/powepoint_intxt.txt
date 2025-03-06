@@ -1,0 +1,68 @@
+SCELTE EFFETTUATE IN FASE DI PROGETTAZIONE ED IMPLEMENTAZIONE
+
+1	Chi siamo - id gruppo - Obbiettivo della presentazione: Spiegare perché il prodotto si presenta cosi.
+	La prima cosa che abbiamo scelto è il tipo di applicazione che volevamo realizzare, 
+	entrambi d’accordo sulla creazione di un app web.
+
+2	PERCHE' UN'APP WEB? 
+	Data la natura della richiesta e il nostro target utenti, un sito dove tutti potessero collegarsi facilmente
+	senza dover installare un'app ci sembrava la scelta migliore.
+	Le aste sono frequentate per lo più da adulti over 35, persone non molto pratiche della tecnologia e di conseguenza
+	potrebbero avvilirsi anche avanti ad una semplice app da configurare.
+	Grazie a HTML/CSS abbiamo potuto realizzare un applicativo dinamico, semplice ed intuitivo.
+
+	
+	target utenti over 35
+	difficoltà 
+	htnl/css
+	
+
+	Criteri di design a cui abbiamo dato più importanza:
+
+3	1- (User-end) Utente centrici : Per noi è di fondamentale importanta l'esperienza utente.
+
+4	2- (Affidabilità) Tolleranza agli errori : se un user commette un errore l'app ti reindirizza es.asta non loggato
+
+5	3- (Manutenzione) Orientato al progresso : la modifica e l'espansione del software non lo stravolgerà.
+		
+6	ARCHITETTURA: QUAL E' LA SCELTA CHE FA AL CASO NOSTRO:
+	Abbiamo optato per un'architettura aperta monolitica suddivisa in quattro layer. 
+	I layer identificati sono i seguenti: *inserisci immagine qui*
+
+7	LAYER E PARTIZIONI
+	Oltre ad una divisione verticale del progetto, abbiamo effettuato una divisione orizzontale.
+	Partizionando ogni singolo layer abbiamo potuto distribuire in maniera bilanciata responsabilità
+	e carico di lavoro.
+	//orientamento al progresso!!
+
+	aperta monolitica
+	layer
+	coesa
+	approfndimento 
+
+8	LA SCELTA DELLE TECNOLOGIE: PERCHE' PROPRIO QUELLE?
+	Apache Maven è stato il primo strumento che abbiamo scelto. E' uno strumento di build automation che offre un framework 
+	potente e flessibile per la gestione del ciclo di vita dello sviluppo software . Ideale per il nostro obbiettivo
+	di rendere il tutto orientato al progresso. Un'applicazione Web con Hibernate è più semplice da gestire.
+
+9	COSA INTENDIAMO PER "HIBERNATE E' SEMPLICE"?
+	1- La connessione al db si ottiene tramite un singolo file di persistence.
+	2- Maggiore produttività, scriviamo più funzionalità usando meno codice.
+	3- Portabilità: E' possibile cambiare il database del nostro software cambiando solo il file "persistence".
+	3- Ci risolve i problemi di comunicazione tra i vari layer(GUI, JPARepository, DB)
+
+10	COMUNICAZIONE TRA LAYER:
+	Come detto nella slide precedente, Hibernate ci permette la comunicazione tra layer. Ma com'è fatta nel dettaglio?
+	Le JSP sono il modo migliore per ottenere input dall'utente. Tali input vengono passati alle servlet e infine vengono inseriti 
+	nel database utilizzando  usato le JPARepository per mappare una ad una le tabelle nel db con le entità nel backend.
+	Per semplificare ulteriormente questa mappatura abbiamo usato le Java Persistence API(JPA Repository).
+	LE JPA Separano SQL dalla logica aziendale. Ciò ci consente di lavorare con un livello di astrazione più elevato.
+	
+11	Quadro completo tecnologie adottate:
+	approccio progettuale sistemico : ovver abbiamo considerato l'insieme delle parti che compongono il software e le loro interazioni
+	*pagina loghi*
+	
+12	RISULTATO FINALE INTERFACCIA:
+	HEADER: Il cuore dell'applicazione.
+	E' dove possiamo effettuare richerche, visualizzare il nostro profilo o le nostre aste.
+	

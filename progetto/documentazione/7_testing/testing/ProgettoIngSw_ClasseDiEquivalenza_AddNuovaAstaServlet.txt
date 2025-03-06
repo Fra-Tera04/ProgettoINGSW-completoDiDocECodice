@@ -1,0 +1,35 @@
+IDasta non è già presente in DB
+
+
+Per aste all'inglese
+
+	CE1: {(titolo = NULL) || (categoria == NULL) || (dataInizio == NULL) || (offertainiziale == 0) || (IDAsta == NULL) 
+	     || (IDProprietarioFK == NULL) || (timer == '00:00:00') || (timerReset == '00:00:00') || (sogliaRialzo == NULL) 
+	     && (tipologia == astaInglese) || (tipologia == astaTempoFisso)}
+	NON VALIDA
+
+per tutte le aste se uno dei parametri non è valido:
+
+	CE2: {(titolo.lenght > 30) || (descrizione.lenght > 150) || (DataInizio < currDate) 
+	     || (offertainiziale < 1) || (sogliaRialzo < 0) || (dataFine < DataInizio) 
+	     || (tipologia != ENUM('astaTempoFisso', 'astaInglese'))
+	     || (categoria != ENUM('TabletTelefonia', 'Giocattoli', 'Elettronica', 'Arte', 'Immobili', 'Antiquariato'))
+	     || (offertaPiuAlta < offertainiziale )  }
+	NON VALIDA
+
+.aste valide:
+ 
+	.CE3: {(0 < titolo.lenght < 30) && (0 < descrizione <150) 
+	     && (categoria == ENUM('TabletTelefonia', 'Giocattoli', 'Elettronica', 'Arte', 'Immobili', 'Antiquariato'))
+	     && (dataInizio == currDate) && (offertainiziale > 0 ) && (IDAsta != NULL) && (offertaPiùAlta >= offertainiziale)
+	     && (IDProprietarioFK != NULL) && (IDOffertaPiuAlta != NULL) && (timer != '00:00:00') 
+	     && (timerReset != '00:00:00') && (sogliaRialzo > 0) 
+	     && (tipologia == astaInglese)}
+	VALIDA
+
+	.CE4: {(0 < titolo.lenght < 30) && (0 < descrizione <150) 
+ 	     && (categoria == ENUM('TabletTelefonia', 'Giocattoli', 'Elettronica', 'Arte', 'Immobili', 'Antiquariato'))
+	     && (dataInizio == currDate) && (offertainiziale > 0 ) && (IDAsta != NULL) && (offertaPiùAlta >= offertainiziale)
+	      && (IDProprietarioFK != NULL) && (IDOffertaPiuAlta != NULL) && (dataFine > dataInizio) 
+	     && (tipologia == astaTempoFisso)}
+	VALIDA

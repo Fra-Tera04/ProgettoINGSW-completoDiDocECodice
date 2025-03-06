@@ -1,0 +1,115 @@
+Cosa fare?
+
+
+odine
+	alalisi req - ok
+	specifica req - atwork
+	architettura, criteri e motivaz. -
+	tecnologie -
+	diagrammi - ~ok
+	codice -
+	testing -
+
+
+
+Prossimo Passo:
+	class D.
+		analisi	ok
+		design	-
+	seq.
+		analisi 
+			creazione asta	~ok
+			vincere asta	~ok
+		design
+			cockburn 1 - feedback		~ok
+				 2 - aquisto io		~ok
+						aggiunte
+							clicksuasta/faiOfferta()
+							homegui-profiloastagui
+							var astaattiva / condizione ora<datafine
+							in astaGui 
+								visualizza vittoria
+								visualizza sconfitta
+	statechart
+		sisitema gui ~ok
+		
+			
+
+
+1. Documento dei Requisiti Software
+	a. Analisi dei Requisiti
+		i. Modellazione di tutti i casi d’uso richiesti. 							-usecase							ok
+
+		ii. Individuazione del target degli utenti								-personas							ok
+
+		iii. Descrizioni Testuali Strutturate per almeno quattro (due, se si consegna prima del
+			15/04/2024) casi d’uso significativi (autenticazione esclusa) a scelta dei contraenti
+			tra quelli richiesti.										-cockburn							ok
+																messaggio
+																vincita asta
+		iv. Prototipazione visuale via Mock-up dell’interfaccia utente per tutti i casi d’uso
+			assegnati attraverso strumenti di rapid prototyping, come “Figma”.				-mockup								ok
+
+		v. Valutazione dell’usabilità a priori.									-valutaz. usab.							ok
+
+		vi. Glossario.												-glossario							~
+
+	b. Specifica dei Requisiti.
+		i. Classi, oggetti e relazioni di analisi.								-cd.1 								ok
+
+		ii. Diagrammi di sequenza di analisi per due casi d’uso significativi a scelta dei
+			contraenti tra quelli assegnati.								-seq. diag. 							ok
+
+		iii. Prototipazione funzionale e progettazione degli event-based statechart
+			dell’interfaccia grafica, relativamente ai casi d’uso individuati al punto 1.a.ii;		-stetchart 							~ok
+
+
+2. Documento di Design del sistema.
+	a. Descrizione dell’architettura proposta, con esplicita definizione dei criteri di design adottati e
+		delle motivazioni dietro tale scelta.
+															-architettura							~
+																-client-server						~
+																-3 layer						~
+																-obiettivi qualitativi sw				~
+																-sottosistemi						~
+																-file:///C:/Users/Lenovo/Desktop/Informatica/UNIVERSITA/3Terzo%20anno/Primo_Semestre/Corso_IngSw/insw_2324/slides/06_System%20Design%20+%20DesignPractices.pdf				~
+
+			
+	b. Descrizione/motivazione delle scelte tecnologiche adottate.
+															-frontend
+																-java fx						~
+															-backend
+																-java bootspring					~
+																-amazon ecs						~
+
+	c. Diagramma delle classi di design.										-class diagram
+																-espanzione cd.1 ~ok ( incertezza su dao )		~ok
+
+	d. Diagrammi di sequenza di design per i casi d’uso identificati al punto 1.a.iii.				-seq. diag. per cockburn ~ok ( incertezza su dao )		~ok
+																-sq1							~ok
+																-sq2							~ok
+
+3. Codice Sorgente sviluppato, comprensivo di eventuale Dockerfile.
+	a. File di build automatica											-docker dockerhub						~
+
+	b. Evidenza dell’uso di strumenti di versioning									-github-verioning						~
+
+	c. Report di qualità del codice, generati da SonarQube o similari (nel caso solo per il back-end)		-sonarqube							~
+															
+
+
+4. Testing e valutazione sul campo dell’usabilità.
+	a. Codice xUnit per unit testing di quattro (due, se si consegna prima del 31/03/2024) metodi
+		non banali, che abbiano almeno due parametri. In aggiunta al codice, una apposita sezione
+		della documentazione deve descrivere le strategie adottate per la progettazione dei test dei
+		due metodi (e.g.: classi di equivalenza individuate e coperte, criteri di copertura strutturale,
+		etc.).													-xUnit black+white						~
+																-caso1							~
+																-caso2							~
+
+	b. Valutazione dell’usabilità sul campo, realizzata sul prodotto finito sia con tecniche simili a
+		quelle messe in atto al punto 1.a.v, sia mediante analisi di file di log. È necessario allegare
+		anche i file di log utilizzati nell’analisi.								-(?)								~
+
+	
+
